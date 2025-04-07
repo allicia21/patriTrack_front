@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <title>PatriTrack</title>
+</head>
+
+<body>
+     <!-- Cabeçalho de informações do sistema -->
+    <header>
+        <div class="title">
+            <h1>Gerenciamento de Patrimonios e Ativos</h1>
+        </div>
+        <div class="banner">
+            <img src="https://www.grupocpcon.com/wp-content/uploads/2023/04/Sistema-de-Conformidade-de-Gestao-de-Ativos-768x512.jpg"
+                alt="imagem principal do sistema PatriTrack">
+        </div>
+    </header>
+
+     <!-- Opções para adicionar um novo item -->
+     <section class="newItem">
+        <input type="text" id="newInput" placeholder="Nome:">
+        <input type="text" id="newDescricao" placeholder="Descrição:">
+        <select id="newCategoria">
+            <option value="" disabled selected>Categoria</option>
+            <option value=1>Movel</option>
+            <option value=2>Imovel</option>
+            <option value=3>Informatica</option>
+            <option value=4>Veiculos</option>
+        </select>
+        <select id="newSituacao">
+            <option value="" disabled selected>Situação</option>
+            <option value="Novo">Novo</option>
+            <option value="Usado">Usado</option>
+            <option value="Reformado">Reformado</option>
+        </select>
+        <button onclick="newItem()" class="addBtn">Adicionar</button>
+    </section>
+
+    <!-- Tabela com items existentes -->
+    <section class="items">
+        <table id="myTable">
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Categoria</th>
+                <th>Situação</th>
+                <th><img src="https://cdn-icons-png.flaticon.com/512/126/126468.png" width="15px" height="15px"></th>
+            </tr>
+        </table>
+    </section>
+
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>
+
+
