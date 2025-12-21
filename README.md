@@ -60,13 +60,19 @@ O frontend é gerenciado pelo `docker-compose.yml` do backend.
 # Entre na pasta do frontend
 cd C:\caminho\para\PatriTrack_Front
 
-# Build da imagem
+# Build da imagem - FAZER ISSO APENAS UMA VEZ
 docker build -t patritrack-frontend:latest .
 
 **Exemplo:**
   cd C:\MVP_SPRINT.01\PatriTrack_Front
   docker build -t patritrack-frontend:latest .
 
+# Verificar se ele está rodando
+  docker ps
+# Deve mostrar:
+# CONTAINER ID   IMAGE                        ...   NAMES
+# xxxxx          patritrack-backend:latest    ...   patritrack-backend
+# yyyyy          patritrack-frontend:latest   ...   patritrack-frontend
 
 ### Passo 2: Execute o docker-compose do backend
   Leia o arquivo README.md do projeto PatriTrack para subir a aplicação
@@ -83,7 +89,7 @@ docker build -t patritrack-frontend:latest .
 
 Para rodar apenas o frontend isoladamente:
 
-### Build da imagem
+### Build da imagem 
 cd C:\caminho\para\PatriTrack_Front
 docker build -t patritrack-frontend:latest .
 
