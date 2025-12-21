@@ -70,9 +70,9 @@ docker build -t patritrack-frontend:latest .
 # Verificar se ele está rodando
   docker ps
 # Deve mostrar:
-# CONTAINER ID   IMAGE                        ...   NAMES
-# xxxxx          patritrack-backend:latest    ...   patritrack-backend
-# yyyyy          patritrack-frontend:latest   ...   patritrack-frontend
+ CONTAINER ID   IMAGE                        ...   NAMES
+ xxxxx          patritrack-backend:latest    ...   patritrack-backend
+ yyyyy          patritrack-frontend:latest   ...   patritrack-frontend
 
 ### Passo 2: Execute o docker-compose do backend
   Leia o arquivo README.md do projeto PatriTrack para subir a aplicação
