@@ -1,7 +1,0 @@
-services:
-  frontend:
-    build: .
-    container_name: patritrack-frontend
-    ports:
-      - "80:80"
-    restart: unless-stopped

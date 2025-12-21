@@ -4,61 +4,105 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="styles.css">
-
     <title>PatriTrack</title>
 </head>
 
 <body>
-     <!-- Cabeçalho de informações do sistema -->
+    <!-- Cabeçalho -->
     <header>
         <div class="title">
-            <h1>Gerenciamento de Patrimonios e Ativos</h1>
+            <h1>Gerenciamento de Patrimônios e Ativos</h1>
         </div>
         <div class="banner">
             <img src="https://www.grupocpcon.com/wp-content/uploads/2023/04/Sistema-de-Conformidade-de-Gestao-de-Ativos-768x512.jpg"
-                alt="imagem principal do sistema PatriTrack">
+                alt="Sistema PatriTrack">
         </div>
     </header>
 
-     <!-- Opções para adicionar um novo item -->
-     <section class="newItem">
-        <input type="text" id="newInput" placeholder="Nome:">
-        <input type="text" id="newDescricao" placeholder="Descrição:">
-        <select id="newCategoria">
-            <option value="" disabled selected>Categoria</option>
-            <option value=1>Movel</option>
-            <option value=2>Imovel</option>
-            <option value=3>Informatica</option>
-            <option value=4>Veiculos</option>
-        </select>
-        <select id="newSituacao">
-            <option value="" disabled selected>Situação</option>
-            <option value="Novo">Novo</option>
-            <option value="Usado">Usado</option>
-            <option value="Reformado">Reformado</option>
-        </select>
-        <button onclick="newItem()" class="addBtn">Adicionar</button>
+    <!-- Formulário de Cadastro -->
+    <section class="newItem">
+        <h2>📝 Cadastrar Novo Patrimônio</h2>
+        
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="newInput">Nome *</label>
+                <input type="text" id="newInput" placeholder="Ex: Notebook Dell">
+            </div>
+            
+            <div class="form-group">
+                <label for="newDescricao">Descrição *</label>
+                <input type="text" id="newDescricao" placeholder="Ex: Notebook para desenvolvimento">
+            </div>
+            
+            <div class="form-group">
+                <label for="newCategoria">Categoria *</label>
+                <select id="newCategoria" onchange="toggleCepField()">
+                    <option value="" disabled selected>Selecione...</option>
+                    <option value="1">Móvel</option>
+                    <option value="2">Imóvel</option>
+                    <option value="3">Informática</option>
+                    <option value="4">Veículos</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="newSituacao">Situação *</label>
+                <select id="newSituacao">
+                    <option value="" disabled selected>Selecione...</option>
+                    <option value="Novo">Novo</option>
+                    <option value="Usado">Usado</option>
+                    <option value="Reformado">Reformado</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Campo CEP (aparece apenas para Imóvel) -->
+        <div id="cepContainer">
+            <div class="form-group" style="flex: 1;">
+                <label for="newCep">CEP *</label>
+                <input type="text" id="newCep" placeholder="00000-000" maxlength="9">
+            </div>
+            <button onclick="buscarCep()" class="searchBtn">🔍 Buscar CEP</button>
+        </div>
+
+        <!-- Informações do CEP -->
+        <div id="cepInfo" class="cepInfo">
+            <p><strong>Endereço:</strong> <span id="endereco">-</span></p>
+            <p><strong>Bairro:</strong> <span id="bairro">-</span></p>
+            <p><strong>Cidade/UF:</strong> <span id="cidade">-</span></p>
+        </div>
+
+        <div class="btn-group">
+            <button onclick="newItem()" class="addBtn">✅ Adicionar Patrimônio</button>
+        </div>
     </section>
 
-    <!-- Tabela com items existentes -->
+    <!-- Botão de Consulta -->
+    <section class="consultaSection">
+        <button onclick="getList()" class="consultaBtn">🔄 Atualizar Lista de Patrimônios</button>
+    </section>
+
+    <!-- Tabela de Patrimônios -->
     <section class="items">
+        <h2>📋 Patrimônios Cadastrados</h2>
         <table id="myTable">
-            <tr>
-                <th>Nome</th>
-                <th>Descrição</th>
-                <th>Categoria</th>
-                <th>Situação</th>
-                <th><img src="https://cdn-icons-png.flaticon.com/512/126/126468.png" width="15px" height="15px"></th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Categoria</th>
+                    <th>Situação</th>
+                    <th>CEP</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Os itens serão inseridos aqui dinamicamente -->
+            </tbody>
         </table>
     </section>
 
     <script src="scripts.js"></script>
-
 </body>
-
 </html>
-
-
